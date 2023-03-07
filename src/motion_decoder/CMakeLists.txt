@@ -2,7 +2,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(motion_decoder)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-dev")
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -15,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   geometry_msgs
   tf
-  apriltags_ros
+  apriltag_ros
 )
 
 ## System dependencies are found with CMake's conventions
@@ -34,10 +35,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES motion_decoder
-#  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs tf tf
-#  DEPENDS system_lib
+  CATKIN_DEPENDS cv_bridge image_transport roscpp sensor_msgs std_msgs tf tf
+  DEPENDS system_lib
 )
 
 include_directories(
